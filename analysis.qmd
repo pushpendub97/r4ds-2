@@ -152,3 +152,75 @@ calendar_resid |>
   ) +
   theme_minimal()
 ```
+
+## NBA Recruits Data Analysis
+
+We load the NBA recruits dataset to analyze player statistics and ratings:
+
+```{r}
+nba_recruits <- read_excel("data/nba_recruits.xlsx")
+nba_recruits
+```
+
+```{r}
+read_excel("data/nba_recruits.xlsx") |>
+  glimpse()
+```
+
+```{r}
+read_excel("data/nba_recruits.xlsx") |>
+  select(rank, nba_mean_ws48, top_mean_wa, total_seasons, drafted) |>
+  summary()
+```
+
+```{r}
+read_excel("data/nba_recruits.xlsx") |>
+  count(tier)
+```
+
+```{r}
+read_excel("data/nba_recruits.xlsx") |>
+  mutate(tier = factor(tier,
+                       levels = c("Never played", "Brief career", "Solid career", "All-Star level", "Superstar"), 
+                       ordered = TRUE)) |>
+  mutate(recruit_group = factor(recruit_group,
+                                levels = c("#1–10", "#11–25", "#26–50", "#51–100", "Outside top 100"),
+                                ordered = TRUE)) |>
+                                count(recruit_group)
+```
+
+```{r}
+#| cache: true
+basketball_tibble <- read_excel("data/nba_recruits.xlsx") |>
+  mutate(tier = factor(tier,
+                       levels = c("Never played", "Brief career", "Solid career", "All-Star level", "Superstar"), 
+                       ordered = TRUE)) |>
+  mutate(recruit_group = factor(recruit_group,
+                                levels = c("#1–10", "#11–25", "#26–50", "#51–100", "Outside top 100"),
+                                ordered = TRUE))
+basketball_tibble |> glimpse()                     
+```
+
+```{r}
+basketball_tibble |>
+  filter(!is.na(rank) & !is.na(top_mean_wa)) |>
+  ggplot(aes(x = rank, y = top_mean_wa)) +
+  geom_point(aes(color = tier), alpha = 0.8, size = 2) +
+  geom_smooth(method = "lm", se = FALSE, color = "black", linetype = "dashed") +
+  geom_text(
+    data = function(df) filter(df, name %in% c("LeBron James", "Kevin Durant", "Kawhi Leonard", "Draymond Green")),
+    aes(label = name),
+    vjust = -0.7,
+    hjust = 0.5,
+    size = 3
+  ) +
+  scale_color_viridis_d() +
+  labs(
+    title = "NBA Recruit Rank vs. Top Mean Win Average",
+    subtitle = "Showing a linear trend across career tiers",
+    x = "Recruit Rank",
+    y = "Top Mean Win Average (top_mean_wa)",
+    color = "Career Tier"
+  ) +
+  theme_minimal()
+```

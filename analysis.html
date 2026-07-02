@@ -328,6 +328,117 @@ $ pct_resid     &lt;dbl&gt; 2.3809285, 8.3159162, -6.0174090, -7.1732173, -6.945
 </div>
 </div>
 </section>
+<section id="nba-recruits-data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="nba-recruits-data-analysis">NBA Recruits Data Analysis</h2>
+<p>We load the NBA recruits dataset to analyze player statistics and ratings:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,873 × 10
+   name            rank recruit_year college drafted recruit_group nba_mean_ws48
+   &lt;chr&gt;          &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;   &lt;lgl&gt;   &lt;chr&gt;                 &lt;dbl&gt;
+ 1 Al Harrington      1         1998 &lt;NA&gt;    TRUE    #1–10                0.0739
+ 2 Rashard Lewis      2         1998 &lt;NA&gt;    TRUE    #1–10                0.135 
+ 3 Korleone Young     3         1998 &lt;NA&gt;    TRUE    #1–10               NA     
+ 4 Dan Gadzuric       4         1998 Univer… TRUE    #1–10                0.14  
+ 5 Stromile Swift     5         1998 Louisi… TRUE    #1–10                0.124 
+ 6 Ronald Curry       6         1998 Univer… FALSE   #1–10               NA     
+ 7 JaRon Rush         7         1998 Univer… FALSE   #1–10               NA     
+ 8 Joel Przybilla     8         1998 Univer… TRUE    #1–10                0.132 
+ 9 Quentin Richa…     9         1998 DePaul… TRUE    #1–10                0.0817
+10 Jason Capel       10         1998 Univer… FALSE   #1–10               NA     
+# ℹ 1,863 more rows
+# ℹ 3 more variables: top_mean_wa &lt;dbl&gt;, total_seasons &lt;dbl&gt;, tier &lt;chr&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 1,873
+Columns: 10
+$ name          &lt;chr&gt; "Al Harrington", "Rashard Lewis", "Korleone Young", "Dan…
+$ rank          &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 14, 16, 1…
+$ recruit_year  &lt;dbl&gt; 1998, 1998, 1998, 1998, 1998, 1998, 1998, 1998, 1998, 19…
+$ college       &lt;chr&gt; NA, NA, NA, "University of California, Los Angeles", "Lo…
+$ drafted       &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, …
+$ recruit_group &lt;chr&gt; "#1–10", "#1–10", "#1–10", "#1–10", "#1–10", "#1–10", "#…
+$ nba_mean_ws48 &lt;dbl&gt; 0.07390909, 0.13525000, NA, 0.14000000, 0.12450000, NA, …
+$ top_mean_wa   &lt;dbl&gt; 3.946000, 11.672000, NA, 4.600000, 0.970000, NA, NA, 3.8…
+$ total_seasons &lt;dbl&gt; 16, 16, 1, 10, 9, NA, NA, 13, 13, NA, 1, 14, 17, NA, NA,…
+$ tier          &lt;chr&gt; "Solid career", "Superstar", "Brief career", "Solid care…</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>      rank        nba_mean_ws48       top_mean_wa     total_seasons   
+ Min.   :  1.00   Min.   :-0.03000   Min.   :-2.980   Min.   : 0.000  
+ 1st Qu.: 25.00   1st Qu.: 0.07000   1st Qu.: 0.970   1st Qu.: 1.000  
+ Median : 50.00   Median : 0.09200   Median : 2.990   Median : 4.000  
+ Mean   : 50.19   Mean   : 0.09622   Mean   : 3.746   Mean   : 5.071  
+ 3rd Qu.: 75.00   3rd Qu.: 0.12050   3rd Qu.: 5.364   3rd Qu.: 8.000  
+ Max.   :100.00   Max.   : 0.25046   Max.   :24.708   Max.   :18.000  
+ NA's   :338      NA's   :1504       NA's   :1504     NA's   :940     
+  drafted       
+ Mode :logical  
+ FALSE:1255     
+ TRUE :618      
+                
+                
+                
+                </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  tier               n
+  &lt;chr&gt;          &lt;int&gt;
+1 All-Star level    66
+2 Brief career     640
+3 Never played    1014
+4 Solid career     113
+5 Superstar         40</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  recruit_group       n
+  &lt;ord&gt;           &lt;int&gt;
+1 #1–10             158
+2 #11–25            232
+3 #26–50            382
+4 #51–100           763
+5 Outside top 100   338</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 1,873
+Columns: 10
+$ name          &lt;chr&gt; "Al Harrington", "Rashard Lewis", "Korleone Young", "Dan…
+$ rank          &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 14, 16, 1…
+$ recruit_year  &lt;dbl&gt; 1998, 1998, 1998, 1998, 1998, 1998, 1998, 1998, 1998, 19…
+$ college       &lt;chr&gt; NA, NA, NA, "University of California, Los Angeles", "Lo…
+$ drafted       &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, …
+$ recruit_group &lt;ord&gt; #1–10, #1–10, #1–10, #1–10, #1–10, #1–10, #1–10, #1–10, …
+$ nba_mean_ws48 &lt;dbl&gt; 0.07390909, 0.13525000, NA, 0.14000000, 0.12450000, NA, …
+$ top_mean_wa   &lt;dbl&gt; 3.946000, 11.672000, NA, 4.600000, 0.970000, NA, NA, 3.8…
+$ total_seasons &lt;dbl&gt; 16, 16, 1, 10, 9, NA, NA, 13, 13, NA, 1, 14, 17, NA, NA,…
+$ tier          &lt;ord&gt; Solid career, Superstar, Brief career, Solid career, Bri…</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
 
 </main>
 <!-- /main column -->
