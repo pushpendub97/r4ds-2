@@ -73,7 +73,261 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 7,670
+Columns: 5
+$ year          &lt;dbl&gt; 1994, 1994, 1994, 1994, 1994, 1994, 1994, 1994, 1994, 19…
+$ month         &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+$ date_of_month &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 1…
+$ day_of_week   &lt;chr&gt; "Sat", "Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat…
+$ births        &lt;dbl&gt; 8096, 7772, 10142, 11248, 11053, 11406, 11251, 8653, 791…</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>     births           year     
+ Min.   : 5728   Min.   :1994  
+ 1st Qu.: 8786   1st Qu.:1999  
+ Median :11981   Median :2004  
+ Mean   :11175   Mean   :2004  
+ 3rd Qu.:12816   3rd Qu.:2009  
+ Max.   :16081   Max.   :2014  </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 366 × 3
+   month date_of_month avg_births
+   &lt;dbl&gt;         &lt;dbl&gt;      &lt;dbl&gt;
+ 1     1             1      7827.
+ 2     1             2      9356.
+ 3     1             3     10869.
+ 4     1             4     11064.
+ 5     1             5     10992.
+ 6     1             6     10942.
+ 7     1             7     10963.
+ 8     1             8     10656.
+ 9     1             9     10672.
+10     1            10     11072.
+# ℹ 356 more rows</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="december-25-births-comparison" class="level2">
+<h2 class="anchored" data-anchor-id="december-25-births-comparison">December 25 Births Comparison</h2>
+<p>The following analysis computes, for each year, the number of births on December 25 and compares it to the average number of births on the surrounding days (December 20–24 and 27–30). The December 25 births are then expressed as a percentage of that baseline.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>December 25 Births vs.&nbsp;Surrounding Days Baseline (1994–2014)</caption>
+<colgroup>
+<col style="width: 6%">
+<col style="width: 21%">
+<col style="width: 38%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Year</th>
+<th style="text-align: right;">Births on Dec 25</th>
+<th style="text-align: right;">Avg Births (Dec 20–24 &amp; 27–30)</th>
+<th style="text-align: right;">Percentage of Baseline (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1994</td>
+<td style="text-align: right;">7192</td>
+<td style="text-align: right;">11392.1</td>
+<td style="text-align: right;">63.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1995</td>
+<td style="text-align: right;">7027</td>
+<td style="text-align: right;">10663.9</td>
+<td style="text-align: right;">65.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1996</td>
+<td style="text-align: right;">7092</td>
+<td style="text-align: right;">10018.9</td>
+<td style="text-align: right;">70.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1997</td>
+<td style="text-align: right;">7055</td>
+<td style="text-align: right;">10239.2</td>
+<td style="text-align: right;">68.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1998</td>
+<td style="text-align: right;">7020</td>
+<td style="text-align: right;">11094.2</td>
+<td style="text-align: right;">63.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1999</td>
+<td style="text-align: right;">6674</td>
+<td style="text-align: right;">11789.9</td>
+<td style="text-align: right;">56.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2000</td>
+<td style="text-align: right;">6719</td>
+<td style="text-align: right;">11683.7</td>
+<td style="text-align: right;">57.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2001</td>
+<td style="text-align: right;">6603</td>
+<td style="text-align: right;">10791.4</td>
+<td style="text-align: right;">61.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2002</td>
+<td style="text-align: right;">6774</td>
+<td style="text-align: right;">10577.6</td>
+<td style="text-align: right;">64.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2003</td>
+<td style="text-align: right;">6744</td>
+<td style="text-align: right;">10715.9</td>
+<td style="text-align: right;">62.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2004</td>
+<td style="text-align: right;">6259</td>
+<td style="text-align: right;">12559.6</td>
+<td style="text-align: right;">49.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2005</td>
+<td style="text-align: right;">6224</td>
+<td style="text-align: right;">12690.0</td>
+<td style="text-align: right;">49.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2006</td>
+<td style="text-align: right;">6409</td>
+<td style="text-align: right;">12340.9</td>
+<td style="text-align: right;">51.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2007</td>
+<td style="text-align: right;">6624</td>
+<td style="text-align: right;">11515.3</td>
+<td style="text-align: right;">57.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2008</td>
+<td style="text-align: right;">6471</td>
+<td style="text-align: right;">10971.2</td>
+<td style="text-align: right;">59.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2009</td>
+<td style="text-align: right;">6160</td>
+<td style="text-align: right;">11595.8</td>
+<td style="text-align: right;">53.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2010</td>
+<td style="text-align: right;">6159</td>
+<td style="text-align: right;">12436.8</td>
+<td style="text-align: right;">49.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2011</td>
+<td style="text-align: right;">5728</td>
+<td style="text-align: right;">11906.6</td>
+<td style="text-align: right;">48.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2012</td>
+<td style="text-align: right;">6325</td>
+<td style="text-align: right;">10415.4</td>
+<td style="text-align: right;">60.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">6620</td>
+<td style="text-align: right;">10526.2</td>
+<td style="text-align: right;">62.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2014</td>
+<td style="text-align: right;">6749</td>
+<td style="text-align: right;">10375.9</td>
+<td style="text-align: right;">65.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>We can summarize this dataset using the <code>summary()</code> function:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>      year       births_dec25  births_surrounding_avg pct_of_baseline
+ Min.   :1994   Min.   :5728   Min.   :10019          Min.   :48.11  
+ 1st Qu.:1999   1st Qu.:6325   1st Qu.:10578          1st Qu.:53.12  
+ Median :2004   Median :6624   Median :11094          Median :60.73  
+ Mean   :2004   Mean   :6601   Mean   :11252          Mean   :59.10  
+ 3rd Qu.:2009   3rd Qu.:6774   3rd Qu.:11790          3rd Qu.:63.28  
+ Max.   :2014   Max.   :7192   Max.   :12690          Max.   :70.79  </code></pre>
+</div>
+</div>
+<p>We can also visualize the percentage of baseline over time using a line and point chart:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="modeling-births" class="level2">
+<h2 class="anchored" data-anchor-id="modeling-births">Modeling Births</h2>
+<p>We fit a linear model to predict the number of births using year, month, and day of the week:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8777789</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 7,670
+Columns: 6
+$ year          &lt;dbl&gt; 1994, 1994, 1994, 1994, 1994, 1994, 1994, 1994, 1994, 19…
+$ month         &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+$ date_of_month &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 1…
+$ day_of_week   &lt;ord&gt; Sat, Sun, Mon, Tues, Wed, Thurs, Fri, Sat, Sun, Mon, Tue…
+$ births        &lt;dbl&gt; 8096, 7772, 10142, 11248, 11053, 11406, 11251, 8653, 791…
+$ pct_resid     &lt;dbl&gt; 2.3809285, 8.3159162, -6.0174090, -7.1732173, -6.9450497…</code></pre>
+</div>
+</div>
+<p>We can now plot <code>calendar_resid</code> to visualize the average percentage deviation by calendar date:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
 
 </main>
 <!-- /main column -->
